@@ -1,0 +1,22 @@
+{
+  "name": "@miraaj/renderer",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "render": "tsx src/render.ts"
+  },
+  "dependencies": {
+    "@remotion/bundler": "4.0.532",
+    "@remotion/renderer": "4.0.532",
+    "@miraaj/shared": "0.1.0",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "remotion": "4.0.532"
+  },
+  "devDependencies": {
+    "@remotion/cli": "4.0.532",
+    "@types/react": "19.2.2",
+    "tsx": "4.20.6",
+    "typescript": "5.9.3"
+  }
+}

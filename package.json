@@ -1,0 +1,13 @@
+{
+  "name": "miraaj",
+  "private": true,
+  "workspaces": ["apps/web", "apps/renderer", "packages/shared", "packages/timeline"],
+  "scripts": {
+    "dev:web": "npm --workspace apps/web run dev",
+    "test:web": "npm --workspace apps/web run test",
+    "typecheck": "npm --workspace packages/shared run typecheck && npm --workspace packages/timeline run typecheck && npm --workspace apps/web run typecheck",
+    "typecheck:renderer": "npm --workspace apps/renderer exec tsc -- --noEmit -p tsconfig.json",
+    "build:renderer": "npm --workspace apps/renderer exec remotion -- bundle src/index.tsx out/bundle",
+    "lint": "npm --workspace apps/web run lint"
+  }
+}

@@ -1,0 +1,20 @@
+[project]
+name = "miraaj-api"
+version = "0.1.0"
+requires-python = ">=3.11"
+dependencies = [
+  "fastapi>=0.115,<1", "uvicorn[standard]>=0.30,<1", "sqlalchemy>=2.0,<3",
+  "psycopg[binary]>=3.2,<4", "redis>=5,<6", "pydantic-settings>=2.5,<3",
+  "python-multipart>=0.0.12,<1", "pydantic>=2.9,<3", "jsonschema>=4.23,<5"
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<9", "httpx>=0.27,<1", "ruff>=0.6,<1"]
+media = ["numpy>=1.26,<3", "opencv-python-headless>=4.10,<5", "faster-whisper>=1.1,<2"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]

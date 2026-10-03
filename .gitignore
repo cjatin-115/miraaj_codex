@@ -1,0 +1,15 @@
+node_modules/
+.next/
+.next-dev/
+apps/renderer/public/media/
+apps/renderer/out/
+apps/renderer/.remotion/
+__pycache__/
+.venv/
+.env
+.env.*
+!.env.example
+storage/projects/*
+!storage/projects/.gitkeep
+*.sqlite3
+*.pyc

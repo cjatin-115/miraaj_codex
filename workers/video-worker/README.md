@@ -1,0 +1,5 @@
+# Video worker
+
+Run `python workers/video-worker/main.py` from the repository root after PostgreSQL and Redis are available. It publishes durable outbox jobs into Redis and consumes `media_analysis`, `director`, and `render` jobs. Media analysis probes the uploaded source, extracts its proxy, audio, and representative frames concurrently, uses OpenCV for framing/scene samples, and transcribes with the configured local faster-whisper model. Director work builds the validated EditPlan and Timeline. Render work uses Remotion and stores the final MP4 under `RENDER_OUTPUT_PATH` only after FFprobe, FFmpeg, OpenCV, duration, frame, caption, and face checks pass.
+
+Install API dependencies with `pip install -e "apps/api[dev,media]"` from the root (or enter `apps/api` and use `pip install -e ".[dev,media]"`). Local transcription downloads the selected faster-whisper weights on first use. The `local` Director provider needs Ollama separately; `gemini` needs `GEMINI_API_KEY`. Keep the worker running continuously so it can dispatch outbox entries and report persisted job progress.
